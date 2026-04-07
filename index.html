@@ -1,166 +1,565 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HDPE Pipes</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container nav">
-        <div class="logo">
-          <img src="assets/logos/logo.png" alt="Mangalam HDPE Pipes" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HDPE Pipes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">
+        <img src="assets/logos/logo.png" alt="Mangalam HDPE Pipes" onerror="this.src='https://placehold.co/150x40?text=Logo'" />
+      </div>
+
+      <nav class="nav-links">
+        <a href="#">About Us</a>
+        <div class="dropdown">
+          <a href="#">Products</a>
+          <span class="chevron">▾</span>
+        </div>
+      </nav>
+
+      <button class="contact-btn">Contact Us</button>
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </header>
+
+  <!-- Sticky Header -->
+  <div class="sticky-header">
+    <div class="container sticky-inner">
+      <span>Premium HDPE Pipes</span>
+      <button class="btn-primary">Get Quote</button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <!-- LEFT IMAGE -->
+      <div class="hero-left">
+        <div class="carousel" id="zoomContainer">
+          <button class="arrow left" id="prevHeroImage">←</button>
+          
+          <img id="mainImage" src="assets/hero/hero-1.jpg" onerror="this.src='https://placehold.co/600x400/ddd/555?text=HDPE+Pipe'" alt="Pipe Hero Image" />
+          <div id="lens" class="zoom-lens"></div>
+
+          <button class="arrow right" id="nextHeroImage">→</button>
+        </div>
+        <div id="result" class="zoom-result"></div>
+
+        <div class="thumbs">
+          <img src="assets/hero/hero-1.jpg" onerror="this.src='https://placehold.co/70x70/ddd/555?text=1'" class="thumb active" alt="Thumb 1" />
+          <img src="assets/hero/hero-2.jpg" onerror="this.src='https://placehold.co/70x70/ddd/555?text=2'" class="thumb" alt="Thumb 2" />
+          <img src="assets/hero/hero-3.jpg" onerror="this.src='https://placehold.co/70x70/ddd/555?text=3'" class="thumb" alt="Thumb 3" />
+          <img src="assets/hero/hero-4.jpg" onerror="this.src='https://placehold.co/70x70/ddd/555?text=4'" class="thumb" alt="Thumb 4" />
+          <img src="assets/hero/hero-5.jpg" onerror="this.src='https://placehold.co/70x70/ddd/555?text=5'" class="thumb" alt="Thumb 5" />
+          <img src="assets/hero/hero-6.jpg" onerror="this.src='https://placehold.co/70x70/ddd/555?text=6'" class="thumb" alt="Thumb 6" />
+        </div>
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="hero-right">
+        <div class="badges">
+          <div class="badge">
+            <img src="assets/logos/bis-certified.svg" onerror="this.src='https://placehold.co/18x18/E5E7EB/666?text=B'" alt="BIS" />
+            <span>BIS Certified</span>
+          </div>
+          <div class="badge">
+            <img src="assets/logos/isi-mark.svg" onerror="this.src='https://placehold.co/18x18/E5E7EB/666?text=I'" alt="ISO" />
+            <span>ISO Certified</span>
+          </div>
+          <div class="badge">
+            <img src="assets/logos/ce-certified.svg" onerror="this.src='https://placehold.co/18x18/E5E7EB/666?text=C'" alt="CE" />
+            <span>CE Certified</span>
+          </div>
         </div>
 
-        <nav class="nav-links">
-          <a href="#">About Us</a>
+        <h1>Premium HDPE Pipes & Coils for Modern Infrastructure</h1>
 
-          <div class="dropdown">
-            <a href="#">Products</a>
-            <span class="chevron">▾</span>
+        <ul class="features">
+          <li><span class="check">✓</span> Leak-Proof Fusion Joints</li>
+          <li><span class="check">✓</span> Chemical Resistance</li>
+          <li><span class="check">✓</span> 50+ Year Service Life</li>
+          <li><span class="check">✓</span> Flexible Installation</li>
+        </ul>
+
+        <div class="price-card">
+          <p class="price-label">Price Range</p>
+          <h3 class="price">₹4,80,000 - 7,90,000</h3>
+          <div class="price-tags">
+            <span class="tag shipping"> Shipping: 6-12 days </span>
+            <span class="tag returns"> Returns: If returned within 7 days </span>
           </div>
-        </nav>
+          <div class="certifications">Certifications: ISO Certified, BIS Certified</div>
+        </div>
 
-        <button class="contact-btn">Contact Us</button>
-      </div>
-    </header>
-
-    <!-- Sticky Header -->
-    <div class="sticky-header">
-      <div class="container sticky-inner">
-        <div>Premium HDPE Pipes</div>
-        <button class="btn-primary">Get Quote</button>
+        <div class="hero-buttons">
+          <button class="btn-primary">Get Custom Quote</button>
+          <button class="btn-secondary">View Technical Specs</button>
+        </div>
       </div>
     </div>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <!-- LEFT IMAGE -->
-        <div class="hero-left">
-          <div class="carousel">
-            <button class="arrow left">←</button>
-
-            <img id="mainImage" src="assets/hero/hero-1.jpg" />
-
-            <button class="arrow right">→</button>
-          </div>
-
-          <div class="thumbs">
-            <img src="assets/hero/hero-1.jpg" class="thumb active" />
-            <img src="assets/hero/hero-2.jpg" class="thumb" />
-            <img src="assets/hero/hero-3.jpg" class="thumb" />
-            <img src="assets/hero/hero-4.jpg" class="thumb" />
-            <img src="assets/hero/hero-5.jpg" class="thumb" />
-            <img src="assets/hero/hero-6.jpg" class="thumb" />
-          </div>
-        </div>
-
-        <!-- RIGHT CONTENT -->
-        <div class="hero-right">
-          <div class="badges">
-            <div class="badge">
-              <img src="assets/logos/bis-certified.svg" alt="BIS" />
-              <span>BIS Certified</span>
-            </div>
-
-            <div class="badge">
-              <img src="assets/logos/isi-mark.svg" alt="ISO" />
-              <span>ISO Certified</span>
-            </div>
-
-            <div class="badge">
-              <img src="assets/logos/ce-certified.svg" alt="CE" />
-              <span>CE Certified</span>
-            </div>
-          </div>
-
-          <h1>Premium HDPE Pipes & Coils for Modern Infrastructure</h1>
-
-          <ul class="features">
-            <li>
-              <span class="check">✓</span>
-              Leak-Proof Fusion Joints
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Chemical Resistance
-            </li>
-            <li>
-              <span class="check">✓</span>
-              50+ Year Service Life
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Flexible Installation
-            </li>
-          </ul>
-
-          <div class="price-card">
-            <p class="price-label">Price Range</p>
-
-            <h3 class="price">₹4,80,000 - 7,90,000</h3>
-
-            <div class="price-tags">
-              <span class="tag shipping"> Shipping: 6-12 days </span>
-
-              <span class="tag returns">
-                Returns: If returned within 7 days
-              </span>
-            </div>
-
-            <div class="certifications">
-              Certifications: ISO Certified, BIS Certified
-            </div>
-          </div>
-
-          <div class="hero-buttons">
-            <button class="btn-primary">Get Custom Quote</button>
-            <button class="btn-secondary">View Technical Specs</button>
-          </div>
-        </div>
+    <!-- TRUSTED LOGOS -->
+    <div class="trusted container">
+      <p>Trusted by Hundreds of Companies Globally</p>
+      <div class="logos">
+        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Euroflex'" alt="Logo 1" />
+        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 2'" alt="Logo 2" />
+        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 3'" alt="Logo 3" />
+        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 4'" alt="Logo 4" />
+        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 5'" alt="Logo 5" />
       </div>
+    </div>
+  </section>
 
-      <!-- TRUSTED LOGOS -->
-      <div class="trusted">
-        <p>Trusted by Hundreds of Companies Globally</p>
-
-        <div class="logos">
-          <img src="assets/logos/euroflex.svg" />
-          <img src="assets/logos/euroflex.svg" />
-          <img src="assets/logos/euroflex.svg" />
-          <img src="assets/logos/euroflex.svg" />
-          <img src="assets/logos/euroflex.svg" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Specs -->
-    <section class="specs">
-      <div class="container">
+  <!-- Specs -->
+  <section class="specs">
+    <div class="container container-sm">
+      <div class="text-center mb-32">
         <h2>Technical Specifications at a Glance</h2>
+        <p class="specs-desc">Comprehensive data and performance metrics to ensure maximum efficiency.</p>
+      </div>
+      
+      <div class="spec-table">
+        <div class="row header-row">
+          <span>Standard</span>
+          <span>Values</span>
+        </div>
+        <div class="row">
+          <span>Standard Size</span>
+          <span>20mm - 1000mm OD</span>
+        </div>
+        <div class="row">
+          <span>Pressure Rating</span>
+          <span>PN 2.5, 3, 4, 6, 8, 10, 12.5, 16, 20</span>
+        </div>
+        <div class="row">
+          <span>Material Grade</span>
+          <span>PE-63, PE-80, PE-100</span>
+        </div>
+        <div class="row">
+          <span>Standard Length</span>
+          <span>Straight length, coils available</span>
+        </div>
+        <div class="row">
+          <span>Color</span>
+          <span>Black with Blue stripes</span>
+        </div>
+        <div class="row">
+          <span>Jointing</span>
+          <span>Butt fusion, Electrofusion</span>
+        </div>
+      </div>
+      
+      <div class="text-center mt-32">
+         <button class="btn-outline">Download Full Specs</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Engineered to Perform -->
+  <section class="engineered py-80">
+    <div class="container">
+      <div class="section-top text-center">
+        <h2>Built to Last: Engineered to Perform</h2>
+        <p>Our HDPE pipes are designed for maximum durability and efficiency across complex infrastructures.</p>
+      </div>
 
-        <div class="spec-table">
-          <div class="row">
-            <span>Pipe Diameter</span>
-            <span>20mm - 1200mm</span>
+      <div class="engineered-grid">
+        <div class="engineered-card">
+          <div class="e-icon"><img src="https://placehold.co/24x24/eff6ff/2f3f8f?text=O" alt="Icon"></div>
+          <h3>Leak-Proof Fusion Joints</h3>
+          <p>Eliminate water loss and ensure continuous flow with seamless fusion technology.</p>
+        </div>
+        <div class="engineered-card">
+          <div class="e-icon"><img src="https://placehold.co/24x24/eff6ff/2f3f8f?text=O" alt="Icon"></div>
+          <h3>Chemical Resistance</h3>
+          <p>Unmatched resistance to harsh chemicals, preventing degradation over time.</p>
+        </div>
+        <div class="engineered-card">
+          <div class="e-icon"><img src="https://placehold.co/24x24/eff6ff/2f3f8f?text=O" alt="Icon"></div>
+          <h3>50+ Year Service Life</h3>
+          <p>Engineered to last half a century even under the most demanding conditions.</p>
+        </div>
+        <div class="engineered-card">
+          <div class="e-icon"><img src="https://placehold.co/24x24/eff6ff/2f3f8f?text=O" alt="Icon"></div>
+          <h3>Lightweight & Flexible</h3>
+          <p>Easy to transport. Flexibility allows it to follow ground contours effortlessly.</p>
+        </div>
+        <div class="engineered-card">
+          <div class="e-icon"><img src="https://placehold.co/24x24/eff6ff/2f3f8f?text=O" alt="Icon"></div>
+          <h3>Cost-Effective</h3>
+          <p>Reduced labor, equipment, and maintenance costs make it economically viable.</p>
+        </div>
+        <div class="engineered-card">
+          <div class="e-icon"><img src="https://placehold.co/24x24/eff6ff/2f3f8f?text=O" alt="Icon"></div>
+          <h3>High Impact Resistance</h3>
+          <p>Tough and resilient to handle pressure surges without any visible damage.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-48">
+        <button class="btn-primary">View All Features</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section bg-gray py-80">
+    <div class="container container-faq">
+      <div class="faq-left">
+        <h2 class="mb-32">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-btn">What is the lifespan of your HDPE pipes? <span class="faq-icon">-</span></button>
+            <div class="faq-body" style="display: block;">
+              Our HDPE pipes are engineered to last over 50 years under standard operating conditions. Their robust material properties prevent rust, rotting, and corrosion.
+            </div>
           </div>
-
-          <div class="row">
-            <span>Material</span>
-            <span>HDPE</span>
+          <div class="faq-item">
+            <button class="faq-btn">Are they suitable for potable water applications? <span class="faq-icon">+</span></button>
+            <div class="faq-body">Yes, all our pipes meant for water supply are manufactured using virgin food-grade materials complying with strict standards.</div>
           </div>
-
-          <div class="row">
-            <span>Temperature</span>
-            <span>-40°C to 60°C</span>
+          <div class="faq-item">
+            <button class="faq-btn">What sizes and pressure ratings do you offer? <span class="faq-icon">+</span></button>
+            <div class="faq-body">We supply a wide range from 20mm up to 1000mm in diameter, with pressure ratings ranging from PN2.5 to PN20.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn">Do you provide installation services or guidance? <span class="faq-icon">+</span></button>
+            <div class="faq-body">We offer comprehensive installation manuals and can provide on-site technical guidance for large projects upon request.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-btn">How are HDPE pipes joined together? <span class="faq-icon">+</span></button>
+            <div class="faq-body">They are joined using heat fusion techniques, creating a joint that is as strong as the pipe itself.</div>
           </div>
         </div>
       </div>
-    </section>
+      <div class="faq-right">
+        <div class="faq-card">
+          <h3>Haven't found what you are looking for?</h3>
+          <p class="text-muted mb-24">Ask us a new question and we'll get back to you.</p>
+          <form class="faq-form">
+             <input type="text" placeholder="Name" required />
+             <input type="email" placeholder="Email Address" required />
+             <textarea placeholder="Write your question..." required></textarea>
+             <button type="submit" class="btn-primary w-100">Send Question</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Applications -->
+  <section class="applications py-80">
+    <div class="container">
+      <div class="app-header">
+        <div class="section-top text-left">
+          <h2>Versatile Applications Across Industries</h2>
+          <p>Delivering safe, efficient, and reliable piping solutions across major sectors.</p>
+        </div>
+        <div class="slider-arrows">
+          <button class="slider-arrow">←</button>
+          <button class="slider-arrow">→</button>
+        </div>
+      </div>
+
+      <div class="app-grid">
+        <div class="app-card">
+          <img src="https://placehold.co/400x500/121929/fff?text=Water+Supply" alt="Water" />
+          <div class="app-overlay">
+            <h4>Water Supply Systems</h4>
+            <p>Reliable and safe distribution of potable water with zero contamination risks.</p>
+          </div>
+        </div>
+        <div class="app-card">
+          <img src="https://placehold.co/400x500/121929/fff?text=Gas+Supply" alt="Gas" />
+          <div class="app-overlay">
+            <h4>Gas Distribution</h4>
+            <p>Secure containment and transport of natural gas with leak-proof installations.</p>
+          </div>
+        </div>
+        <div class="app-card">
+          <img src="https://placehold.co/400x500/121929/fff?text=Industrial" alt="Industry" />
+          <div class="app-overlay">
+            <h4>Industrial Piping</h4>
+            <p>Heavy duty piping to withstand harsh chemicals and high temperature fluids.</p>
+          </div>
+        </div>
+        <div class="app-card">
+          <img src="https://placehold.co/400x500/121929/fff?text=Telecom" alt="Telecom" />
+          <div class="app-overlay">
+            <h4>Telecom Ducts</h4>
+            <p>Protective housing for sensitive optical fiber cables ensuring long-term safety.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manufacturing Process (Horizontal Tabs) -->
+  <section class="manufacturing bg-gray py-80">
+    <div class="container">
+      <div class="section-top text-center mb-40">
+        <h2>Advanced HDPE Pipe Manufacturing Process</h2>
+        <p>Our state-of-the-art facility utilizes precision technology to manufacture pipes that exceed standards.</p>
+      </div>
+
+      <div class="process-tabs-wrap">
+        <div class="process-tabs">
+          <button class="ptab active" data-id="p1">01 Extrusion & Cooling</button>
+          <button class="ptab" data-id="p2">02 Precision Cutting</button>
+          <button class="ptab" data-id="p3">03 Quality Testing</button>
+          <button class="ptab" data-id="p4">04 Final Inspection</button>
+          <button class="ptab" data-id="p5">05 Final Dispatch</button>
+        </div>
+      </div>
+
+      <div class="process-content bg-white">
+        <!-- Pane 1 -->
+        <div class="ppane active" id="p1">
+          <div class="ppane-left">
+            <div class="tag-pill">Step 01</div>
+            <h3>High-Quality Extrusion & Cooling</h3>
+            <p>We use state-of-the-art extrusion processes. The raw material is melted and formed into a continuous pipe, followed by vacuum sizing and intensive cooling baths to ensure structural integrity and perfect dimensions.</p>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> Automated feeding systems</li>
+              <li><span class="check-icon">✓</span> Multi-stage cooling for dimensional stability</li>
+            </ul>
+            <button class="btn-text mt-24"><span class="play-icon">▶</span> View process video</button>
+          </div>
+          <div class="ppane-right">
+            <img src="https://placehold.co/600x400/ddd/555?text=Extrusion" alt="Extrusion Image" />
+          </div>
+        </div>
+        
+        <!-- Pane 2 -->
+        <div class="ppane" id="p2">
+          <div class="ppane-left">
+            <div class="tag-pill">Step 02</div>
+            <h3>Precision Cutting</h3>
+            <p>Utilizing high-speed planetary saws and fully automated coiling machines to deliver custom lengths accurately without deformation.</p>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> Dust-free cutting precision</li>
+              <li><span class="check-icon">✓</span> Neat coiling for easier transport</li>
+            </ul>
+          </div>
+          <div class="ppane-right">
+            <img src="https://placehold.co/600x400/ddd/555?text=Cutting" alt="Cutting Image" />
+          </div>
+        </div>
+
+        <!-- Pane 3 -->
+        <div class="ppane" id="p3">
+          <div class="ppane-left">
+            <div class="tag-pill">Step 03</div>
+            <h3>Quality Testing</h3>
+            <p>Each batch undergoes severe hydrostatic pressure testing, tensile strength analysis, and melt flow index evaluation in our in-house lab.</p>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> 100% batch testing</li>
+              <li><span class="check-icon">✓</span> Exceeds global standards</li>
+            </ul>
+          </div>
+          <div class="ppane-right">
+            <img src="https://placehold.co/600x400/ddd/555?text=Quality+Testing" alt="Testing Image" />
+          </div>
+        </div>
+
+        <!-- Pane 4 -->
+        <div class="ppane" id="p4">
+          <div class="ppane-left">
+            <div class="tag-pill">Step 04</div>
+            <h3>Final Inspection</h3>
+            <p>Every single pipe is barcoded, visually inspected, and accurately recorded before being approved.</p>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> Automated flaw detection</li>
+              <li><span class="check-icon">✓</span> Comprehensive traceability</li>
+            </ul>
+          </div>
+          <div class="ppane-right">
+            <img src="https://placehold.co/600x400/ddd/555?text=Inspection" alt="Inspection Image" />
+          </div>
+        </div>
+
+        <!-- Pane 5 -->
+        <div class="ppane" id="p5">
+          <div class="ppane-left">
+            <div class="tag-pill">Step 05</div>
+            <h3>Final Dispatch</h3>
+            <p>Pipes are safely loaded and dispatched to your site taking extreme care to prevent any surface damages during transport.</p>
+            <ul class="check-list">
+              <li><span class="check-icon">✓</span> Secure packaging</li>
+              <li><span class="check-icon">✓</span> On-time delivery tracking</li>
+            </ul>
+          </div>
+          <div class="ppane-right">
+            <img src="https://placehold.co/600x400/ddd/555?text=Dispatch" alt="Dispatch Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats py-80">
+    <div class="container">
+      <div class="section-top text-center mb-40">
+        <h2>Trusted Performance. Proven Results.</h2>
+        <p>We have a track record of delivering quality at scale.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-icon-wrap">🛡️</div>
+          <h2>40 Years+</h2>
+          <p class="text-muted">Service Life</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon-wrap">🏢</div>
+          <h2>10,000+</h2>
+          <p class="text-muted">Projects Completed Globally</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon-wrap">⚙️</div>
+          <h2>0.01%</h2>
+          <p class="text-muted">Defect Rate Recorded</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio bg-gray py-80">
+    <div class="container">
+      <div class="section-top text-center mb-40">
+        <h2>Complete Piping Solutions Portfolio</h2>
+        <p>Explore our full range of solutions designed to meet the demands of every sector.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="port-card">
+          <img src="https://placehold.co/380x200/ddd/555?text=MDPE+Pipes" alt="MDPE" />
+          <div class="port-content">
+            <h4>MDPE Pipes & Accessories</h4>
+            <p>Ideal for gas distribution networks offering excellent chemical and crack resistance.</p>
+            <a href="#" class="port-link">Know More →</a>
+          </div>
+        </div>
+        <div class="port-card">
+          <img src="https://placehold.co/380x200/ddd/555?text=Corrugated" alt="Corrugated" />
+          <div class="port-content">
+            <h4>Corrugated Pipes</h4>
+            <p>Double wall structures providing high ring stiffness for sewage and drainage.</p>
+            <a href="#" class="port-link">Know More →</a>
+          </div>
+        </div>
+        <div class="port-card">
+          <img src="https://placehold.co/380x200/ddd/555?text=PLB+Ducts" alt="PLB Ducts" />
+          <div class="port-content">
+            <h4>PLB Telecom Ducts</h4>
+            <p>Permanently lubricated inner surface for easy blowing of optical fiber cables.</p>
+            <a href="#" class="port-link">Know More →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-48">
+        <a href="#" class="view-all-link">View all our piping products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section class="resources py-80">
+    <div class="container container-sm">
+      <div class="section-top text-center mb-40">
+        <h2>Resources & Downloads</h2>
+        <p>Access our complete library of technical documents for projects.</p>
+      </div>
+
+      <div class="resource-list flex-col">
+        <div class="resource-row">
+          <span class="r-name">HDPE Technical Brochure 2024</span>
+          <a href="#" class="r-link">Download PDF <span class="dl-icon">↓</span></a>
+        </div>
+        <div class="resource-row">
+          <span class="r-name">Material Certifications & Approvals</span>
+          <a href="#" class="r-link">Download PDF <span class="dl-icon">↓</span></a>
+        </div>
+        <div class="resource-row">
+          <span class="r-name">Installation & Handling Guidelines</span>
+          <a href="#" class="r-link">Download PDF <span class="dl-icon">↓</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Block -->
+  <section class="cta-wrap container">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Ready to Transform Your Infrastructure?</h2>
+        <p>Get a precise estimate for your project. Our experts are ready to provide technical support and competitive pricing tailored to your needs.</p>
+      </div>
+      <div class="cta-form-box">
+        <div class="form-row flex">
+          <input type="text" placeholder="Name" required />
+          <input type="text" placeholder="Phone Number" required />
+        </div>
+        <div class="form-row flex mt-16">
+          <input type="email" placeholder="Email Address" required />
+          <select class="custom-select">
+            <option>Interested product</option>
+            <option>HDPE</option>
+            <option>MDPE</option>
+          </select>
+        </div>
+        <button class="btn-black w-100 mt-16">Request a Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="f-col main-f-col">
+        <img src="assets/logos/logo.png" alt="Logo" class="f-logo" onerror="this.src='https://placehold.co/120x35/0f172a/fff?text=Logo'" />
+        <p class="text-muted">Manufactured and tested for supreme quality and unmatched endurance.</p>
+      </div>
+      <div class="f-col">
+        <h5>Quick Links</h5>
+        <a href="#">About Us</a>
+        <a href="#">Our Products</a>
+        <a href="#">Applications</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="f-col">
+        <h5>Products</h5>
+        <a href="#">HDPE Pipes</a>
+        <a href="#">MDPE Pipes</a>
+        <a href="#">Corrugated Pipes</a>
+        <a href="#">PLB Ducts</a>
+      </div>
+      <div class="f-col address-col">
+        <h5>Address</h5>
+        <p class="text-muted">Mangalam Pipes Pvt Ltd, Plot No 45, Phase 1, MIDC, Mumbai</p>
+        <p class="text-muted">📞 +91 1800 123 4567</p>
+        <p class="text-muted">✉️ info@mangalam.com</p>
+      </div>
+    </div>
+    <div class="container f-bottom">
+      <span class="text-muted">© 2024 Mangalam Piping Solutions. All rights reserved.</span>
+      <div class="f-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
