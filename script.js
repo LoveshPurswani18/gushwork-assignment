@@ -125,6 +125,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =====================
+     APPLICATIONS SLIDER
+     ===================== */
+  const appSlider = document.getElementById('appSlider');
+  const appPrev = document.getElementById('appPrev');
+  const appNext = document.getElementById('appNext');
+  
+  if (appSlider && appPrev && appNext) {
+      appPrev.addEventListener('click', () => {
+          appSlider.scrollBy({ left: -360, behavior: 'smooth' });
+      });
+      appNext.addEventListener('click', () => {
+          appSlider.scrollBy({ left: 360, behavior: 'smooth' });
+      });
+  }
+
+  /* =====================
      MANUFACTURING Tabs
      ===================== */
   const tabs = document.querySelectorAll('.process-tab');
