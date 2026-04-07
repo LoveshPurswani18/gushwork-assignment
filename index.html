@@ -341,8 +341,157 @@
         </div>
 
         <div class="mfg-panes" id="mfgPanes">
-          <!-- Pane 1 automatically generated to look like screenshot -->
-          <!-- Replicated through JS for clean sliders or hardcoded. We hardcode Pane 0 and JS handles class toggling but for searchability we hardcode all. -->
+          <!-- Pane 1 -->
+          <div class="mfg-pane active">
+            <div class="mfg-pane-left">
+              <h3>High-Grade Raw Material Selection</h3>
+              <p>Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness and wall thickness uniformity.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> PE100 grade material</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Optimal molecular weight distribution</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Raw Material Selection" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pane 2 -->
+          <div class="mfg-pane">
+            <div class="mfg-pane-left">
+              <h3>Precision Extrusion System</h3>
+              <p>Our advanced extruders melt the raw material evenly, maintaining strict temperature profiles for structurally flawless pipes.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Automated gravimetric feeding</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Advanced screw geometry</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Extrusion System" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 3 -->
+          <div class="mfg-pane">
+            <div class="mfg-pane-left">
+              <h3>Vacuum Calibration & Cooling</h3>
+              <p>Intensive spray cooling tanks rapidly bring the extruded pipe down to shape without inducing thermal stress.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Multi-stage cooling zones</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Dimensional stability locks</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Cooling" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 4 -->
+          <div class="mfg-pane">
+            <div class="mfg-pane-left">
+              <h3>Laser Sizing & Measurement</h3>
+              <p>Real-time laser micrometers continuously scan the pipe circumference to ensure exacting OD and wall density.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Inline continuous scanning</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Zero-tolerance variance</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Sizing" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 5 -->
+          <div class="mfg-pane">
+            <div class="mfg-pane-left">
+              <h3>Stringent Quality Control</h3>
+              <p>Batch specimens undergo severe hydrostatic, tensile, and melt-flow index tests in our state-of-the-art lab.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> 100% burst pressure tested</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Exceeds IS 4984 standards</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Quality Control" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 6 -->
+          <div class="mfg-pane">
+            <div class="mfg-pane-left">
+              <h3>Laser Marking & Traceability</h3>
+              <p>Each meter is permanently laser-etched with batch info, sizing, and standards for complete field traceability.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Friction-resistant marking</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Lifetime batch tracking</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Marking" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 7 -->
+          <div class="mfg-pane">
+            <div class="mfg-pane-left">
+              <h3>Clean Precision Cutting</h3>
+              <p>Planetary cutting saws seamlessly slice continuous runs into precise custom lengths without dust or burrs.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Burr-free clean cuts</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Automated length sensing</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Cutting" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 8 -->
+          <div class="mfg-pane">
+            <div class="mfg-pane-left">
+              <h3>Coiling & Dispatch Packaging</h3>
+              <p>Flexible diameters are neatly coiled while straight lengths are bundled securely to prevent transport damage.</p>
+              <ul class="mfg-checks">
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Automated tight coiling</li>
+                <li><span class="mfg-check-icon"><svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span> UV-protected wrapping</li>
+              </ul>
+            </div>
+            <div class="mfg-pane-right">
+              <div class="mfg-img-wrapper">
+                <img src="assets/applications-section/image.png" alt="Packaging" />
+                <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="mfg-img-arrow right" onclick="changeMfgStep(1)"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -144,60 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
      MANUFACTURING Tabs (Updated)
      ===================== */
   const mfgSteps = document.querySelectorAll('.mfg-step');
-  const mfgPanes = document.getElementById('mfgPanes');
+  const mfgPanesArray = document.querySelectorAll('.mfg-pane');
   
-  const mfgData = [
-    { title: "High-Grade Raw Material Selection", desc: "Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness and wall thickness uniformity.", checks: ["PE100 grade material", "Optimal molecular weight distribution"] },
-    { title: "Precision Extrusion System", desc: "Our advanced extruders melt the raw material evenly, maintaining strict temperature profiles for structurally flawless pipes.", checks: ["Automated gravimetric feeding", "Advanced screw geometry"] },
-    { title: "Vacuum Calibration & Cooling", desc: "Intensive spray cooling tanks rapidly bring the extruded pipe down to shape without inducing thermal stress.", checks: ["Multi-stage cooling zones", "Dimensional stability locks"] },
-    { title: "Laser Sizing & Measurement", desc: "Real-time laser micrometers continuously scan the pipe circumference to ensure exacting OD and wall density.", checks: ["Inline continuous scanning", "Zero-tolerance variance"] },
-    { title: "Stringent Quality Control", desc: "Batch specimens undergo severe hydrostatic, tensile, and melt-flow index tests in our state-of-the-art lab.", checks: ["100% burst pressure tested", "Exceeds IS 4984 standards"] },
-    { title: "Laser Marking & Traceability", desc: "Each meter is permanently laser-etched with batch info, sizing, and standards for complete field traceability.", checks: ["Friction-resistant marking", "Lifetime batch tracking"] },
-    { title: "Clean Precision Cutting", desc: "Planetary cutting saws seamlessly slice continuous runs into precise custom lengths without dust or burrs.", checks: ["Burr-free clean cuts", "Automated length sensing"] },
-    { title: "Coiling & Dispatch Packaging", desc: "Flexible diameters are neatly coiled while straight lengths are bundled securely to prevent transport damage.", checks: ["Automated tight coiling", "UV-protected wrapping"] }
-  ];
-
   let currentMfgIndex = 0;
 
-  function renderMfgPane(index) {
-      if(!mfgPanes) return;
-      const data = mfgData[index];
-      
-      const checksHTML = data.checks.map(check => `
-         <li>
-           <span class="mfg-check-icon">
-             <svg viewBox="0 0 24 24" width="12" height="12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
-           </span> 
-           ${check}
-         </li>
-      `).join('');
-
-      mfgPanes.innerHTML = `
-        <div class="mfg-pane active">
-          <div class="mfg-pane-left">
-            <h3>${data.title}</h3>
-            <p>${data.desc}</p>
-            <ul class="mfg-checks">
-              ${checksHTML}
-            </ul>
-          </div>
-          <div class="mfg-pane-right">
-            <div class="mfg-img-wrapper">
-              <img src="assets/applications-section/image.png" alt="${data.title}" />
-              <button class="mfg-img-arrow left" onclick="changeMfgStep(-1)">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              </button>
-              <button class="mfg-img-arrow right" onclick="changeMfgStep(1)">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
-  }
-
   window.changeMfgStep = function(dir) {
-      currentMfgIndex = (currentMfgIndex + dir + mfgData.length) % mfgData.length;
+      if (!mfgSteps.length) return;
+      currentMfgIndex = (currentMfgIndex + dir + mfgSteps.length) % mfgSteps.length;
       updateMfgUI();
   };
 
@@ -206,7 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
           if (i === currentMfgIndex) step.classList.add('active');
           else step.classList.remove('active');
       });
-      renderMfgPane(currentMfgIndex);
+      mfgPanesArray.forEach((pane, i) => {
+          if (i === currentMfgIndex) pane.classList.add('active');
+          else pane.classList.remove('active');
+      });
   }
 
   if (mfgSteps.length > 0) {
@@ -216,6 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
               updateMfgUI();
           });
       });
-      renderMfgPane(0);
+      updateMfgUI();
   }
 });
