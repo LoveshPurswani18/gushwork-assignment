@@ -219,14 +219,20 @@ h2 { font-size: 32px; font-weight: 700; line-height: 1.2; }
 /* -----------------
    SPECS (Original)
    ----------------- */
-.specs { background: #0f172a; color: white; padding: 60px 0; }
-.specs h2 { color: #fff; }
-.specs-desc { color: rgba(255,255,255,0.7); font-size: 15px; }
-.spec-table { margin-top: 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
-.spec-table .row { display: flex; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 15px; }
+.specs { background: #0F172A; padding: 100px 0; color: #F8FAFC; }
+.specs-header { text-align: left; margin-bottom: 48px; }
+.specs h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.specs-desc { color: #94A3B8; font-size: 15px; margin: 0; max-width: 600px; }
+.spec-table { background: #1E293B; border: 1px solid #334155; border-radius: 8px; margin-bottom: 48px; }
+.spec-table .row { display: grid; grid-template-columns: 1fr 1.5fr; padding: 16px 24px; border-bottom: 1px solid #334155; font-size: 14px; }
 .spec-table .row:last-child { border-bottom: none; }
-.spec-table .header-row { background: rgba(255,255,255,0.05); font-weight: 600; color: rgba(255,255,255,0.9); }
-.spec-table .row span:first-child { color: rgba(255,255,255,0.8); }
+.spec-table .header-row { background: #334155; font-weight: 600; color: #E2E8F0; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+.spec-table .row span:first-child { font-weight: 500; color: #F1F5F9; }
+.spec-table .row span:last-child { color: #CBD5E1; }
+
+.specs-actions { text-align: center; }
+.btn-outline-dark { background: transparent; color: #F8FAFC; border: 1px solid #475569; padding: 14px 24px; border-radius: 8px; font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 10px; transition: 0.2s; }
+.btn-outline-dark:hover { background: #334155; border-color: #64748B; }
 
 
 /* -----------------
