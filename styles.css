@@ -867,29 +867,85 @@ h2 {
 }
 
 /* -----------------
-   STATS 
+   REVIEWS & TESTIMONIALS (Marquee)
    ----------------- */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.reviews-marquee-wrap {
+  display: flex;
   gap: 24px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 16px 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
-.stat-box {
-  background: #fff;
-  padding: 40px 32px;
-  border-radius: 16px;
+.reviews-track {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+  animation: scrollMarquee 45s linear infinite;
+}
+.review-card {
+  width: 400px;
+  background: #FAFAFA;
   border: 1px solid var(--border);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+  padding: 32px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
-.stat-icon-wrap {
-  font-size: 32px;
-  margin-bottom: 16px;
-  display: inline-flex;
+.review-quotes {
+  margin-bottom: 20px;
 }
-.stat-box h2 {
-  font-size: 32px;
-  margin-bottom: 8px;
-  color: var(--primary);
+.review-quotes svg {
+  transform: rotate(180deg);
+}
+.review-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.review-text {
+  font-size: 15px;
+  color: #4B5563;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+}
+.author-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #E5E7EB;
+  flex-shrink: 0;
+}
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+.author-info strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.author-info span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@keyframes scrollMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - 24px)); }
 }
 
 /* -----------------
