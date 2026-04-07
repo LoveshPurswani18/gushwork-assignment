@@ -1062,7 +1062,7 @@ h2 {
    CTA Box
    ----------------- */
 .cta-wrap {
-  margin-bottom: -100px;
+  margin-bottom: 80px;
   position: relative;
   z-index: 10;
 }
@@ -1131,50 +1131,116 @@ h2 {
    FOOTER 
    ----------------- */
 .footer {
-  background: #0f172a;
-  color: #d1d5db;
-  padding: 180px 0 40px;
+  color: #4B5563;
+  border-top: 1px solid var(--border);
+  padding: 0;
 }
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 48px;
-  margin-bottom: 60px;
+
+.footer-top-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
 }
 .f-logo {
-  height: 35px;
-  margin-bottom: 20px;
+  height: 48px;
+}
+.f-top-right h4 {
+  font-size: 22px;
+  color: #111827;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  gap: 32px;
+  padding-bottom: 64px;
 }
 .f-col h5 {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
   margin-bottom: 24px;
 }
 .f-col a {
   display: block;
+  color: #4B5563;
+  font-size: 14px;
   margin-bottom: 16px;
   transition: color 0.2s;
-  font-size: 15px;
 }
 .f-col a:hover {
-  color: #fff;
+  color: var(--primary);
 }
-.address-col p {
+
+.contact-row {
+  display: flex;
+  gap: 16px;
   margin-bottom: 16px;
-  font-size: 15px;
+  align-items: flex-start;
+}
+.c-icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.contact-row p {
+  font-size: 14px;
+  color: #4B5563;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+.social-icons a {
+  display: inline-flex;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  margin-bottom: 0;
+}
+.social-icons a:hover {
+  opacity: 1;
+}
+.social-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+.f-bottom-wrap {
+  border-top: 1px solid var(--border);
 }
 .f-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 32px;
-  font-size: 14px;
+  padding: 32px 0;
+}
+.copyright {
+  font-size: 13px;
+  color: #6B7280;
 }
 .f-bottom-links {
   display: flex;
-  gap: 24px;
+  gap: 32px;
+}
+.f-bottom-links a {
+  font-size: 13px;
+  color: #6B7280;
+}
+.f-bottom-links a:hover {
+  color: var(--text-main);
 }
 
 @keyframes fadeUp {
