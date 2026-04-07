@@ -1029,8 +1029,8 @@ h2 {
 .resource-list {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 0 24px;
+  border-radius: 8px;
+  padding: 0 32px;
 }
 .resource-row {
   display: flex;
@@ -1043,26 +1043,19 @@ h2 {
   border-bottom: none;
 }
 .r-name {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
 }
 .r-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   font-weight: 600;
-  color: var(--primary);
+  color: #4F46E5;
   font-size: 14px;
 }
-.dl-icon {
-  border: 1px solid var(--primary);
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
+.r-link:hover {
+  opacity: 0.8;
 }
 
 /* -----------------
