@@ -312,104 +312,37 @@
     </div>
   </section>
 
-  <!-- Manufacturing Process (Horizontal Tabs) -->
+  <!-- Manufacturing Process -->
   <section class="manufacturing bg-gray py-80">
     <div class="container">
       <div class="section-top text-center mb-40">
-        <h2>Advanced HDPE Pipe Manufacturing Process</h2>
-        <p>Our state-of-the-art facility utilizes precision technology to manufacture pipes that exceed standards.</p>
+        <h2 style="font-size: 36px; line-height: 1.25;">Advanced HDPE Pipe Manufacturing<br>Process</h2>
+        <p style="margin-top: 16px; max-width: 800px; margin-left: auto; margin-right: auto; color: #6B7280; font-size: 16px;">Our state-of-the-art extrusion technology ensures consistent quality, optimal material properties, and dimensional accuracy in every pipe we manufacture.</p>
       </div>
 
-      <div class="process-tabs-wrap">
-        <div class="process-tabs">
-          <button class="ptab active" data-id="p1">01 Extrusion & Cooling</button>
-          <button class="ptab" data-id="p2">02 Precision Cutting</button>
-          <button class="ptab" data-id="p3">03 Quality Testing</button>
-          <button class="ptab" data-id="p4">04 Final Inspection</button>
-          <button class="ptab" data-id="p5">05 Final Dispatch</button>
-        </div>
-      </div>
-
-      <div class="process-content bg-white">
-        <!-- Pane 1 -->
-        <div class="ppane active" id="p1">
-          <div class="ppane-left">
-            <div class="tag-pill">Step 01</div>
-            <h3>High-Quality Extrusion & Cooling</h3>
-            <p>We use state-of-the-art extrusion processes. The raw material is melted and formed into a continuous pipe, followed by vacuum sizing and intensive cooling baths to ensure structural integrity and perfect dimensions.</p>
-            <ul class="check-list">
-              <li><span class="check-icon">✓</span> Automated feeding systems</li>
-              <li><span class="check-icon">✓</span> Multi-stage cooling for dimensional stability</li>
-            </ul>
-            <button class="btn-text mt-24"><span class="play-icon">▶</span> View process video</button>
-          </div>
-          <div class="ppane-right">
-            <img src="https://placehold.co/600x400/ddd/555?text=Extrusion" alt="Extrusion Image" />
-          </div>
-        </div>
-        
-        <!-- Pane 2 -->
-        <div class="ppane" id="p2">
-          <div class="ppane-left">
-            <div class="tag-pill">Step 02</div>
-            <h3>Precision Cutting</h3>
-            <p>Utilizing high-speed planetary saws and fully automated coiling machines to deliver custom lengths accurately without deformation.</p>
-            <ul class="check-list">
-              <li><span class="check-icon">✓</span> Dust-free cutting precision</li>
-              <li><span class="check-icon">✓</span> Neat coiling for easier transport</li>
-            </ul>
-          </div>
-          <div class="ppane-right">
-            <img src="https://placehold.co/600x400/ddd/555?text=Cutting" alt="Cutting Image" />
-          </div>
+      <div class="mfg-card">
+        <!-- Steps Header -->
+        <div class="mfg-stepper">
+          <button class="mfg-step active" data-index="0">Raw Material</button>
+          <div class="mfg-line"></div>
+          <button class="mfg-step" data-index="1">Extrusion</button>
+          <div class="mfg-line"></div>
+          <button class="mfg-step" data-index="2">Cooling</button>
+          <div class="mfg-line"></div>
+          <button class="mfg-step" data-index="3">Sizing</button>
+          <div class="mfg-line"></div>
+          <button class="mfg-step" data-index="4">Quality Control</button>
+          <div class="mfg-line"></div>
+          <button class="mfg-step" data-index="5">Marking</button>
+          <div class="mfg-line"></div>
+          <button class="mfg-step" data-index="6">Cutting</button>
+          <div class="mfg-line"></div>
+          <button class="mfg-step" data-index="7">Packaging</button>
         </div>
 
-        <!-- Pane 3 -->
-        <div class="ppane" id="p3">
-          <div class="ppane-left">
-            <div class="tag-pill">Step 03</div>
-            <h3>Quality Testing</h3>
-            <p>Each batch undergoes severe hydrostatic pressure testing, tensile strength analysis, and melt flow index evaluation in our in-house lab.</p>
-            <ul class="check-list">
-              <li><span class="check-icon">✓</span> 100% batch testing</li>
-              <li><span class="check-icon">✓</span> Exceeds global standards</li>
-            </ul>
-          </div>
-          <div class="ppane-right">
-            <img src="https://placehold.co/600x400/ddd/555?text=Quality+Testing" alt="Testing Image" />
-          </div>
-        </div>
-
-        <!-- Pane 4 -->
-        <div class="ppane" id="p4">
-          <div class="ppane-left">
-            <div class="tag-pill">Step 04</div>
-            <h3>Final Inspection</h3>
-            <p>Every single pipe is barcoded, visually inspected, and accurately recorded before being approved.</p>
-            <ul class="check-list">
-              <li><span class="check-icon">✓</span> Automated flaw detection</li>
-              <li><span class="check-icon">✓</span> Comprehensive traceability</li>
-            </ul>
-          </div>
-          <div class="ppane-right">
-            <img src="https://placehold.co/600x400/ddd/555?text=Inspection" alt="Inspection Image" />
-          </div>
-        </div>
-
-        <!-- Pane 5 -->
-        <div class="ppane" id="p5">
-          <div class="ppane-left">
-            <div class="tag-pill">Step 05</div>
-            <h3>Final Dispatch</h3>
-            <p>Pipes are safely loaded and dispatched to your site taking extreme care to prevent any surface damages during transport.</p>
-            <ul class="check-list">
-              <li><span class="check-icon">✓</span> Secure packaging</li>
-              <li><span class="check-icon">✓</span> On-time delivery tracking</li>
-            </ul>
-          </div>
-          <div class="ppane-right">
-            <img src="https://placehold.co/600x400/ddd/555?text=Dispatch" alt="Dispatch Image" />
-          </div>
+        <div class="mfg-panes" id="mfgPanes">
+          <!-- Pane 1 automatically generated to look like screenshot -->
+          <!-- Replicated through JS for clean sliders or hardcoded. We hardcode Pane 0 and JS handles class toggling but for searchability we hardcode all. -->
         </div>
       </div>
     </div>
