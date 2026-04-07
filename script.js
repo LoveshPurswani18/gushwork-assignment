@@ -107,33 +107,20 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================
      FAQ ACCORDION
      ===================== */
-  const accordionItems = document.querySelectorAll('.accordion-item');
+  const faqItems = document.querySelectorAll('.faq-item');
 
-  accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
+  faqItems.forEach(item => {
+    const header = item.querySelector('.faq-btn');
     header.addEventListener('click', () => {
       // Close all others
-      accordionItems.forEach(otherItem => {
+      faqItems.forEach(otherItem => {
         if(otherItem !== item) {
           otherItem.classList.remove('active');
-          const otherBody = otherItem.querySelector('.accordion-body');
-          if(otherBody) otherBody.style.display = 'none';
-          const icon = otherItem.querySelector('.icon');
-          if(icon) icon.textContent = '+';
         }
       });
       
       // Toggle current
       item.classList.toggle('active');
-      const body = item.querySelector('.accordion-body');
-      const icon = item.querySelector('.icon');
-      if (item.classList.contains('active')) {
-        body.style.display = 'block';
-        icon.textContent = '-';
-      } else {
-        body.style.display = 'none';
-        icon.textContent = '+';
-      }
     });
   });
 
