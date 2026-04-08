@@ -162,11 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
       updateMfgUI();
   };
 
-  function updateMfgUI() {
+  function updateMfgUI(skipScroll = false) {
       mfgSteps.forEach((step, i) => {
           if (i === currentMfgIndex) {
             step.classList.add('active');
-            step.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+            if (!skipScroll) {
+              step.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+            }
           } else step.classList.remove('active');
       });
       mfgPanesArray.forEach((pane, i) => {
@@ -186,6 +188,39 @@ document.addEventListener("DOMContentLoaded", () => {
               updateMfgUI();
           });
       });
-      updateMfgUI();
+      updateMfgUI(true); // skip scroll on load
   }
+
+  /* =====================
+     MODAL MANAGEMENT
+     ===================== */
+  const downloadModal = document.getElementById('downloadModal');
+  const quoteModal = document.getElementById('quoteModal');
+  const downloadTriggers = document.querySelectorAll('.open-download-modal');
+  const quoteTriggers = document.querySelectorAll('.open-quote-modal');
+  const closeDownload = document.getElementById('closeModal');
+  const closeQuote = document.getElementById('closeQuoteModal');
+
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  downloadTriggers.forEach(btn => btn.addEventListener('click', () => openModal(downloadModal)));
+  quoteTriggers.forEach(btn => btn.addEventListener('click', () => openModal(quoteModal)));
+
+  if (closeDownload) closeDownload.addEventListener('click', () => closeModal(downloadModal));
+  if (closeQuote) closeQuote.addEventListener('click', () => closeModal(quoteModal));
+
+  window.addEventListener('click', (e) => {
+    if (e.target === downloadModal) closeModal(downloadModal);
+    if (e.target === quoteModal) closeModal(quoteModal);
+  });
 });

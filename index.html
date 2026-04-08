@@ -32,7 +32,7 @@
   <div class="sticky-header">
     <div class="container sticky-inner">
       <span>Premium HDPE Pipes</span>
-      <button class="btn-primary">Get Quote</button>
+      <button class="btn-primary open-quote-modal">Get Quote</button>
     </div>
   </div>
 
@@ -110,8 +110,8 @@
         </div>
 
         <div class="hero-buttons">
-          <button class="btn-primary">Get Custom Quote</button>
-          <button class="btn-secondary">View Technical Specs</button>
+          <button class="btn-primary open-quote-modal">Get Custom Quote</button>
+          <button class="btn-secondary open-download-modal">View Technical Specs</button>
         </div>
       </div>
     </div>
@@ -185,7 +185,7 @@
       </div>
       
       <div class="specs-actions">
-         <button class="btn-outline-dark">
+         <button class="btn-outline-dark open-download-modal">
            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
            Download Full Technical Datasheet
          </button>
@@ -235,7 +235,7 @@
       </div>
 
       <div class="text-center mt-48">
-        <button class="btn-primary" style="padding: 14px 28px; border-radius: 6px;">Request a Quote</button>
+        <button class="btn-primary open-quote-modal" style="padding: 14px 28px; border-radius: 6px;">Request a Quote</button>
       </div>
     </div>
   </section>
@@ -789,7 +789,7 @@
           <input type="text" class="cta-input phone-number" placeholder="7003026616" required />
         </div>
         
-        <button class="btn-black w-100 mt-16" style="background: #1F2937; border-radius: 8px; padding: 14px; font-size: 14px;">Request Custom Quote</button>
+        <button class="btn-black w-100 mt-16 open-quote-modal" style="background: #1F2937; border-radius: 8px; padding: 14px; font-size: 14px;">Request Custom Quote</button>
       </div>
     </div>
   </section>
@@ -870,6 +870,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- Quote Modal -->
+  <div id="quoteModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Request a call back</h3>
+        <button class="modal-close" id="closeQuoteModal">&times;</button>
+      </div>
+      <div class="modal-body q-modal-body">
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Company Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <div class="phone-input-group">
+          <select class="phone-select">
+            <option>+91</option>
+          </select>
+          <input type="text" placeholder="7003026616" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-download ready" id="submitQuote">Submit Form</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Modal -->
+  <div id="downloadModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Let us email the entire catalogue to you</h3>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label for="modalEmail">Your Email *</label>
+        <input type="email" id="modalEmail" placeholder="example@gmail.com" required>
+        
+        <label for="modalContact">Your Contact (Optional)</label>
+        <input type="text" id="modalContact" placeholder="+91-0000000000">
+      </div>
+      <div class="modal-footer">
+        <button class="btn-download" id="submitDownload">Download Brochure</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
