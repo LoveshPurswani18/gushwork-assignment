@@ -1,53 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* =====================
-     STICKY HEADER
-     ===================== */
+  /* Sticky header- Handles the appearance of the mini-header after the first fold.*/
+  const header = document.querySelector(".header");
   const stickyHeader = document.querySelector(".sticky-header");
   const heroSection = document.querySelector(".hero");
 
-  const header = document.querySelector(".header");
   window.addEventListener("scroll", () => {
-    // Toggle shadow on main sticky header
+    // Dynamic background change for main header
     if (window.scrollY > 10) {
       header.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
     }
-    // Show sticky mini-header when scrolled past the first fold (hero section)
+
+    // Toggle mini-sticky-header visibility based on fold position
     if (window.scrollY > (heroSection.offsetHeight || 600) * 0.8) {
-      stickyHeader.classList.add("show");
+      stickyHeader.classList.add("visible");
     } else {
-      stickyHeader.classList.remove("show");
+      stickyHeader.classList.remove("visible");
     }
   });
 
-  /* =====================
-     CAROUSEL & ZOOM
-     ===================== */
+  /* Hero Carousel & Zoom - Manages thumbnail switching and the high-fidelity magnifying zoom.*/
   const mainImage = document.getElementById("mainImage");
   const thumbs = document.querySelectorAll(".thumb");
   const prevBtn = document.getElementById("prevHeroImage");
   const nextBtn = document.getElementById("nextHeroImage");
+  
   let currentImageIdx = 0;
+  const imageUrls = Array.from(thumbs).map(t => t.src);
 
   function updateImage(idx) {
-    if(idx < 0) idx = thumbs.length - 1;
-    if(idx >= thumbs.length) idx = 0;
+    if (idx < 0) idx = imageUrls.length - 1;
+    if (idx >= imageUrls.length) idx = 0;
     currentImageIdx = idx;
-
-    thumbs.forEach(t => t.classList.remove("active"));
-    thumbs[currentImageIdx].classList.add("active");
-    mainImage.src = thumbs[currentImageIdx].src;
     
-    // reset zoom result bg
-    result.style.backgroundImage = `url(${mainImage.src})`;
+    mainImage.src = imageUrls[currentImageIdx];
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === currentImageIdx));
+    // Update the zoom background source to match new image
+    if (typeof setZoom === 'function') setZoom();
   }
 
   thumbs.forEach((thumb, index) => {
     thumb.addEventListener("click", () => updateImage(index));
   });
 
-  if(prevBtn && nextBtn){
+  if (prevBtn && nextBtn) {
       prevBtn.addEventListener("click", () => updateImage(currentImageIdx - 1));
       nextBtn.addEventListener("click", () => updateImage(currentImageIdx + 1));
   }
@@ -59,8 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let cx, cy;
 
+  // Calculates zoom ratios based on lens and result box dimensions.
+  // Updates background image and sizing of the preview box.
   function setZoom() {
-    // Zoom ratio. Calculated based on result vs lens
+    if (!result || !lens || !mainImage) return;
     cx = result.offsetWidth / lens.offsetWidth;
     cy = result.offsetHeight / lens.offsetHeight;
     
@@ -80,64 +79,53 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   container.addEventListener("mousemove", moveLens);
-  container.addEventListener("touchmove", moveLens);
+  container.addEventListener("touchmove", (e) => moveLens(e), { passive: false });
 
+  // Positions the lens over the cursor and shifts the background offset 
+  // of the preview box accordingly.
   function moveLens(e) {
-    e.preventDefault();
+    if (e.type === 'touchmove') e.preventDefault();
     const pos = getCursorPos(e);
     let x = pos.x - (lens.offsetWidth / 2);
     let y = pos.y - (lens.offsetHeight / 2);
 
-    // Prevent lens from going outside the image
-    if (x > mainImage.width - lens.offsetWidth) { x = mainImage.width - lens.offsetWidth; }
-    if (x < 0) { x = 0; }
-    if (y > mainImage.height - lens.offsetHeight) { y = mainImage.height - lens.offsetHeight; }
-    if (y < 0) { y = 0; }
+    // Boundary constraints
+    if (x > mainImage.width - lens.offsetWidth) x = mainImage.width - lens.offsetWidth;
+    if (x < 0) x = 0;
+    if (y > mainImage.height - lens.offsetHeight) y = mainImage.height - lens.offsetHeight;
+    if (y < 0) y = 0;
 
     lens.style.left = x + "px";
     lens.style.top = y + "px";
 
-    // Set background position in the result div
+    // Synchronize zoomed preview background position
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
 
   function getCursorPos(e) {
-    let x = 0, y = 0;
     const a = mainImage.getBoundingClientRect();
-    // Use clientX/Y to avoid page offset issues if needed, or stick to page - rect
     const event = e.touches ? e.touches[0] : e;
-    x = event.clientX - a.left;
-    y = event.clientY - a.top;
-    return {x : x, y : y};
+    const x = event.clientX - a.left;
+    const y = event.clientY - a.top;
+    return { x, y };
   }
 
-  /* =====================
-     FAQ ACCORDION
-     ===================== */
+  /* FAQ Accordion - Toggles content visibility for the frequently asked questions.*/
   const faqItems = document.querySelectorAll('.faq-item');
-
   faqItems.forEach(item => {
     const header = item.querySelector('.faq-btn');
     header.addEventListener('click', () => {
-      // Close all others
-      faqItems.forEach(otherItem => {
-        if(otherItem !== item) {
-          otherItem.classList.remove('active');
-        }
-      });
-      
-      // Toggle current
-      item.classList.toggle('active');
+      const isActive = item.classList.contains('active');
+      faqItems.forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
     });
   });
 
-  /* =====================
-     APPLICATIONS SLIDER
-     ===================== */
-  const appSlider = document.getElementById('appSlider');
+  /* Application Slider - Simple horizontal scroll slide for application cards.*/
+  const appSlider = document.querySelector('.app-grid');
   const appPrev = document.getElementById('appPrev');
   const appNext = document.getElementById('appNext');
-  
+
   if (appSlider && appPrev && appNext) {
       appPrev.addEventListener('click', () => {
           appSlider.scrollBy({ left: -360, behavior: 'smooth' });
@@ -147,12 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  /* =====================
-     MANUFACTURING Tabs (Updated)
-     ===================== */
+  /* Manufacturing Stepper - Synchronizes visual tabs with content panes and mobile badges.*/
   const mfgSteps = document.querySelectorAll('.mfg-step');
   const mfgPanesArray = document.querySelectorAll('.mfg-pane');
-  
   let currentMfgIndex = 0;
   const stepLabels = ['Raw Material', 'Extrusion', 'Cooling', 'Sizing', 'Quality Control', 'Marking', 'Cutting', 'Packaging'];
 
@@ -162,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateMfgUI();
   };
 
+  // Updates the active state of manufacturing tabs and content panes.
   function updateMfgUI(skipScroll = false) {
       mfgSteps.forEach((step, i) => {
           if (i === currentMfgIndex) {
@@ -174,7 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
       mfgPanesArray.forEach((pane, i) => {
           if (i === currentMfgIndex) {
             pane.classList.add('active');
-            // Update the mobile step badge inside this pane
             const badge = pane.querySelector('.mfg-step-badge');
             if (badge) badge.textContent = `Step ${i + 1}/${mfgPanesArray.length}: ${stepLabels[i] || ''}`;
           } else pane.classList.remove('active');
@@ -188,12 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
               updateMfgUI();
           });
       });
-      updateMfgUI(true); // skip scroll on load
+      updateMfgUI(true); 
   }
 
-  /* =====================
-     MODAL MANAGEMENT
-     ===================== */
+  /* Modal Management - Centralized logic for opening/closing Request Quote & Download portals.*/
   const downloadModal = document.getElementById('downloadModal');
   const quoteModal = document.getElementById('quoteModal');
   const downloadTriggers = document.querySelectorAll('.open-download-modal');
@@ -204,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function openModal(modal) {
     if (!modal) return;
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; 
   }
 
   function closeModal(modal) {
@@ -219,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (closeDownload) closeDownload.addEventListener('click', () => closeModal(downloadModal));
   if (closeQuote) closeQuote.addEventListener('click', () => closeModal(quoteModal));
 
+  // Global exit listener for clicking outside modal content
   window.addEventListener('click', (e) => {
     if (e.target === downloadModal) closeModal(downloadModal);
     if (e.target === quoteModal) closeModal(quoteModal);

@@ -12,10 +12,10 @@
   <header class="header">
     <div class="container nav">
       <div class="logo">
-        <img src="assets/logos/logo.png" alt="Mangalam HDPE Pipes" onerror="this.src='https://placehold.co/150x40?text=Logo'" />
+        <img src="assets/logos/logo.png" alt="Company Logo" decoding="async" onerror="this.src='https://placehold.co/150x40?text=Logo'" />
       </div>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Main Navigation">
         <a href="#">About Us</a>
         <div class="dropdown">
           <a href="#">Products</a>
@@ -24,7 +24,6 @@
       </nav>
 
       <button class="contact-btn">Contact Us</button>
-      <button class="mobile-menu-btn">☰</button>
     </div>
   </header>
 
@@ -47,10 +46,10 @@
       <!-- LEFT IMAGE -->
       <div class="hero-left">
         <div class="carousel" id="zoomContainer">
-          <button class="arrow left" id="prevHeroImage">←</button>
+          <button class="arrow left" id="prevHeroImage" aria-label="Previous Image">‹</button>
           
-          <img id="mainImage" src="assets/hero/hero-1.jpg" onerror="this.src='https://placehold.co/600x400/ddd/555?text=HDPE+Pipe'" alt="Pipe Hero Image" />
-          <div id="lens" class="zoom-lens">
+          <img id="mainImage" src="assets/hero/hero-1.jpg" decoding="sync" onerror="this.src='https://placehold.co/600x400/ddd/555?text=HDPE+Pipe'" alt="Industrial Pipe Production Hero" />
+          <div id="lens" class="zoom-lens" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: white; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -59,9 +58,9 @@
             </svg>
           </div>
 
-          <button class="arrow right" id="nextHeroImage">→</button>
+          <button class="arrow right" id="nextHeroImage" aria-label="Next Image">›</button>
         </div>
-        <div id="result" class="zoom-result"></div>
+        <div id="result" class="zoom-result" aria-hidden="true"></div>
 
         <div class="thumbs">
           <img src="assets/hero/hero-1.jpg" onerror="this.src='https://placehold.co/70x70/ddd/555?text=1'" class="thumb active" alt="Thumb 1" />
@@ -73,7 +72,7 @@
         </div>
       </div>
 
-      <!-- RIGHT CONTENT -->
+      <!-- Right content -->
       <div class="hero-right">
         <div class="badges">
           <div class="badge">
@@ -116,20 +115,20 @@
       </div>
     </div>
 
-    <!-- TRUSTED LOGOS -->
+    <!-- Trusted logos -->
     <div class="trusted container">
       <p>Trusted by Hundreds of Companies Globally</p>
       <div class="logos">
-        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Euroflex'" alt="Logo 1" />
-        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 2'" alt="Logo 2" />
-        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 3'" alt="Logo 3" />
-        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 4'" alt="Logo 4" />
-        <img src="assets/logos/euroflex.svg" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Logo 5'" alt="Logo 5" />
+        <img src="assets/logos/euroflex.svg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Euroflex'" alt="Euroflex Logo" />
+        <img src="assets/logos/euroflex.svg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Partner'" alt="Partner Logo" />
+        <img src="assets/logos/euroflex.svg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Client'" alt="Client Logo" />
+        <img src="assets/logos/euroflex.svg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Supply'" alt="Supply Logo" />
+        <img src="assets/logos/euroflex.svg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/120x30/f8fafc/999?text=Industry'" alt="Industry Logo" />
       </div>
     </div>
   </section>
 
-  <!-- Specs -->
+  <!-- Specs section-->
   <section class="specs">
     <div class="container container-sm">
       <div class="specs-header">
@@ -193,7 +192,7 @@
     </div>
   </section>
   
-  <!-- Engineered to Perform -->
+  <!-- Engineered to Perform section-->
   <section class="engineered bg-gray py-80">
     <div class="container">
       <div class="section-top text-left mb-40">
@@ -203,34 +202,34 @@
 
       <div class="engineered-grid">
         <div class="engineered-card">
-          <div class="e-icon"><img src="assets/logos/bag-icon.svg" alt="Superior Chemical Resistance Icon"></div>
+          <div class="e-icon"><img src="assets/logos/bag-icon.svg" loading="lazy" decoding="async" alt="Chemical Resistance Icon"></div>
           <h3>Superior Chemical Resistance</h3>
-          <p>HDPE pipes resist a wide range of chemicals, acids, and alkalis. Unlike metal pipes, they won't corrode, rust, or scale, ensuring pure water quality and extended service life in aggressive environments.</p>
+          <p>Our HDPE pipes are engineered to resist a wide range of chemicals, acids, and alkalis, ensuring long-term integrity in industrial applications.</p>
         </div>
         <div class="engineered-card">
-          <div class="e-icon"><img src="assets/logos/drop-tool-icon.svg" alt="Exceptional Flexibility Icon"></div>
+          <div class="e-icon"><img src="assets/logos/drop-tool-icon.svg" loading="lazy" decoding="async" alt="Flexibility Icon"></div>
           <h3>Exceptional Flexibility & Durability</h3>
-          <p>HDPE pipes resist a wide range of chemicals, acids, and alkalis. Unlike metal pipes, they won't corrode, rust, or scale, ensuring pure water quality and extended service life in aggressive environments.</p>
+          <p>Designed to withstand extreme pressure and environmental stress, these pipes offer unmatched flexibility without compromising on structural strength.</p>
         </div>
         <div class="engineered-card">
-          <div class="e-icon"><img src="assets/logos/box-icon.svg" alt="Leak-Proof Icon"></div>
+          <div class="e-icon"><img src="assets/logos/box-icon.svg" loading="lazy" decoding="async" alt="Leak-Proof Icon"></div>
           <h3>Leak-Proof Fusion Welding</h3>
-          <p>HDPE pipes resist a wide range of chemicals, acids, and alkalis. Unlike metal pipes, they won't corrode, rust, or scale, ensuring pure water quality and extended service life in aggressive environments.</p>
+          <p>Utilizing advanced butt fusion and electrofusion techniques, we provide completely leak-proof joints that are stronger than the pipe itself.</p>
         </div>
         <div class="engineered-card">
-          <div class="e-icon"><img src="assets/logos/setting-icon.svg" alt="Cost-Effective Icon"></div>
+          <div class="e-icon"><img src="assets/logos/setting-icon.svg" loading="lazy" decoding="async" alt="Cost-Effective Icon"></div>
           <h3>Cost-Effective Long-Term Solution</h3>
-          <p>HDPE pipes resist a wide range of chemicals, acids, and alkalis. Unlike metal pipes, they won't corrode, rust, or scale, ensuring pure water quality and extended service life in aggressive environments.</p>
+          <p>With a service life exceeding 50 years and minimal maintenance requirements, our solutions offer the lowest lifecycle cost in the industry.</p>
         </div>
         <div class="engineered-card">
-          <div class="e-icon"><img src="assets/logos/setting-icon.svg" alt="Environmentally Sustainable Icon"></div>
+          <div class="e-icon"><img src="assets/logos/setting-icon.svg" loading="lazy" decoding="async" alt="Sustainability Icon"></div>
           <h3>Environmentally Sustainable</h3>
-          <p>HDPE pipes resist a wide range of chemicals, acids, and alkalis. Unlike metal pipes, they won't corrode, rust, or scale, ensuring pure water quality and extended service life in aggressive environments.</p>
+          <p>100% recyclable and manufactured with energy-efficient processes, our HDPE solutions help you meet your environmental goals safely.</p>
         </div>
         <div class="engineered-card">
-          <div class="e-icon"><img src="assets/logos/setting-icon.svg" alt="Quality Assurance Icon"></div>
+          <div class="e-icon"><img src="assets/logos/setting-icon.svg" loading="lazy" decoding="async" alt="Quality Icon"></div>
           <h3>Certified Quality Assurance</h3>
-          <p>HDPE pipes resist a wide range of chemicals, acids, and alkalis. Unlike metal pipes, they won't corrode, rust, or scale, ensuring pure water quality and extended service life in aggressive environments.</p>
+          <p>Every meter of pipe undergoes rigorous testing to comply with international standards including IS 4984, ISO 4427, and ASTM D3035.</p>
         </div>
       </div>
 
@@ -240,7 +239,7 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ section-->
   <section class="faq-section bg-gray py-80">
     <div class="container">
       <div class="section-top text-left mb-40">
@@ -293,7 +292,7 @@
     </div>
   </section>
 
-  <!-- Applications -->
+  <!-- Applications section-->
   <section class="applications py-80">
     <div class="container">
       <div class="app-header">
@@ -302,8 +301,8 @@
           <p style="color: #6B7280; font-size: 15px; margin: 0; line-height: 1.6;">From technical textiles to packaging materials, our precision-engineered machinery delivers superior performance across diverse applications.</p>
         </div>
         <div class="slider-arrows">
-          <button class="slider-arrow" id="appPrev"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
-          <button class="slider-arrow" id="appNext"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+          <button class="slider-arrow" id="appPrev" aria-label="Previous Slide"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
+          <button class="slider-arrow" id="appNext" aria-label="Next Slide"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
         </div>
       </div>
     </div>
@@ -349,7 +348,7 @@
     </div>
   </section>
 
-  <!-- Manufacturing Process -->
+  <!-- Manufacturing Process section-->
   <section class="manufacturing bg-gray py-80">
     <div class="container">
       <div class="section-top text-center mb-40">
@@ -377,9 +376,8 @@
           <button class="mfg-step" data-index="7">Packaging</button>
         </div>
 
-        <div class="mfg-panes" id="mfgPanes">
-          <!-- Pane 1 -->
-          <div class="mfg-pane active">
+    <div class="mfg-panes" id="mfgPanes">
+      <div class="mfg-pane active">
             <div class="mfg-pane-left">
               <div class="mfg-step-badge">Step 1/8: Raw Material</div>
               <h3>High-Grade Raw Material Selection</h3>
@@ -545,7 +543,7 @@
             </div>
             <div class="mfg-pane-right">
               <div class="mfg-img-wrapper">
-                <img src="assets/applications-section/image.png" alt="Packaging" />
+                <img src="assets/applications-section/image.png" loading="lazy" decoding="async" alt="Packaging" />
               </div>
             </div>
             <div class="mfg-mobile-nav">
@@ -558,7 +556,7 @@
     </div>
   </section>
 
-  <!-- Reviews / Prove Results Section -->
+  <!-- Reviews & Results Section -->
   <section class="reviews py-80 bg-white">
     <div class="container text-center mb-48">
       <h2 style="font-size: 38px; font-weight: 700; margin-bottom: 16px; color: #111827;">Trusted Performance. Proven Results</h2>
@@ -716,7 +714,7 @@
         <div class="port-card">
           <h4>PE-RT Heating Pipes</h4>
           <p>Polyethylene of Raised Temperature resistance pipes ideal for underfloor heating, radiator connections, and hot water applications.</p>
-          <img src="assets/portoflio-section/image3.png" alt="Heating Pipes" class="port-img" />
+          <img src="assets/portoflio-section/image3.png" loading="lazy" decoding="async" alt="Heating Pipes" class="port-img" />
           <button class="port-btn">Learn More</button>
         </div>
       </div>
@@ -737,7 +735,7 @@
     </div>
   </section>
 
-  <!-- Resources -->
+  <!-- Resources section-->
   <section class="resources py-80 bg-gray">
     <div class="container container-sm">
       <div class="section-top text-center" style="margin-bottom: 64px;">
@@ -794,7 +792,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer section-->
   <footer class="footer bg-gray">
     <div class="container" style="padding-top: var(--fold-py);">
       <!-- Footer Top Card -->
@@ -876,7 +874,7 @@
     <div class="modal-box">
       <div class="modal-header">
         <h3>Request a call back</h3>
-        <button class="modal-close" id="closeQuoteModal">&times;</button>
+        <button class="modal-close" id="closeQuoteModal" aria-label="Close Modal">&times;</button>
       </div>
       <div class="modal-body q-modal-body">
         <input type="text" placeholder="Full Name" required>
@@ -900,7 +898,7 @@
     <div class="modal-box">
       <div class="modal-header">
         <h3>Let us email the entire catalogue to you</h3>
-        <button class="modal-close" id="closeModal">&times;</button>
+        <button class="modal-close" id="closeModal" aria-label="Close Modal">&times;</button>
       </div>
       <div class="modal-body">
         <label for="modalEmail">Your Email *</label>

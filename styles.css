@@ -1,4 +1,4 @@
-/* Base & Reset */
+/* Base & Reset values*/
 * {
   margin: 0;
   padding: 0;
@@ -62,7 +62,7 @@ body {
   max-width: 100vw;
 }
 
-/* Ensure inner content never exceeds 1240px, but incorporates required fold padding below that */
+/* Ensuring inner content never exceeds 1240px, but incorporates required fold padding below that */
 .container {
   width: 100%;
   max-width: calc(1240px + calc(var(--fold-px) * 2));
@@ -208,9 +208,7 @@ h2 {
   font-size: 16px;
 }
 
-/* -----------------
-   ORIGINAL HEADER 
-   ----------------- */
+/* Original header */
 .header {
   position: sticky;
   top: 0;
@@ -267,12 +265,8 @@ h2 {
   font-weight: 600;
   font-size: 14px;
 }
-.mobile-menu-btn {
-  display: none;
-  font-size: 24px;
-}
 
-/* Sticky mini-header — appears above (over) the nav when scrolled past hero */
+/* Sticky mini-header — appears above the nav when scrolled past hero section*/
 .sticky-header {
   position: fixed;
   top: -80px;
@@ -284,7 +278,7 @@ h2 {
   transition: top 0.3s ease;
   z-index: 999;
 }
-.sticky-header.show {
+.sticky-header.visible {
   top: 0;
 }
 .sticky-inner {
@@ -297,9 +291,7 @@ h2 {
   font-size: 16px;
 }
 
-/* -----------------
-   HERO (Original)
-   ----------------- */
+/* Hero secrion*/
 .hero {
   background: var(--bg-light);
   padding: 40px 0 20px;
@@ -323,7 +315,7 @@ h2 {
   width: 100%;
   display: block;
   border-radius: 20px;
-  height: clamp(300px, 40vw, 480px); /* Responsive but restricted height */
+  height: clamp(300px, 40vw, 480px);
   object-fit: cover;
 }
 .zoom-lens {
@@ -339,7 +331,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px; /* Slightly rounded square */
+  border-radius: 4px;
 }
 .zoom-lens svg {
   opacity: 0.9;
@@ -354,7 +346,7 @@ h2 {
   min-width: 320px;
   border-radius: 24px;
   background-color: #fff;
-  border: 4px solid #fff; /* Thick white border from screenshot */
+  border: 4px solid #fff; 
   visibility: hidden;
   z-index: 50;
   background-repeat: no-repeat;
@@ -525,9 +517,7 @@ h2 {
   height: 32px;
 }
 
-/* -----------------
-   SPECS (Original)
-   ----------------- */
+/* Specs section*/
 .specs {
   background: #0f172a;
   padding: 100px 0;
@@ -602,9 +592,7 @@ h2 {
   border-color: #64748b;
 }
 
-/* -----------------
-   ENGINEERED Grid 
-   ----------------- */
+/* Engineered Grid */
 .engineered-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -644,9 +632,7 @@ h2 {
   line-height: 1.6;
 }
 
-/* -----------------
-   FAQ Layout
-   ----------------- */
+/* FAQ section*/
 .faq-list {
   margin-bottom: 40px;
 }
@@ -775,9 +761,7 @@ h2 {
   text-align: center;
 }
 
-/* -----------------
-   APPLICATIONS 
-   ----------------- */
+/* Applications section */
 .app-header {
   display: flex;
   justify-content: space-between;
@@ -843,10 +827,8 @@ h2 {
 .app-grid::-webkit-scrollbar {
   display: none;
 }
-/* Card: ~3 cards visible on desktop, 2 on tablet, 1.5 on mobile */
 .app-card {
   position: relative;
-  /* Show ~3 cards on desktop */
   min-width: calc((100vw - 2 * var(--fold-px) - 2 * 16px) / 3);
   width: calc((100vw - 2 * var(--fold-px) - 2 * 16px) / 3);
   max-width: 380px;
@@ -894,9 +876,7 @@ h2 {
   margin: 0;
 }
 
-/* -----------------
-   MANUFACTURING 
-   ----------------- */
+/* Manufacturing */
 .mfg-card {
   background: #fff;
   border: 1px solid var(--border);
@@ -1063,9 +1043,7 @@ h2 {
   color: var(--primary);
 }
 
-/* -----------------
-   REVIEWS & TESTIMONIALS (Marquee)
-   ----------------- */
+/* Reviews section*/
 .reviews-marquee-wrap {
   display: flex;
   gap: 24px;
@@ -1145,9 +1123,7 @@ h2 {
   to { transform: translateX(calc(-100% - 24px)); }
 }
 
-/* -----------------
-   PORTFOLIO 
-   ----------------- */
+/* Portfolio section */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1220,9 +1196,7 @@ h2 {
   margin: 0;
 }
 
-/* -----------------
-   RESOURCES & DOWNLOADS 
-   ----------------- */
+/* Resources section */
 .resource-list {
   background: #fff;
   border: 1px solid var(--border);
@@ -1255,9 +1229,7 @@ h2 {
   opacity: 0.8;
 }
 
-/* -----------------
-   CTA Box
-   ----------------- */
+/* CTA Box*/
 .cta-wrap {
   margin-bottom: 80px;
   position: relative;
@@ -1324,9 +1296,7 @@ h2 {
   margin-bottom: 0;
 }
 
-/* -----------------
-   FOOTER 
-   ----------------- */
+/* Footer section */
 .footer {
   color: #4B5563;
   border-top: 1px solid var(--border);
@@ -1516,13 +1486,13 @@ h2 {
    RESPONSIVE OVERHAULS (Screens up to 800px)
    ----------------- */
 @media (max-width: 800px) {
-  .nav-links, .contact-btn { display: none; }
-.mobile-menu-btn { display: none !important; }
+  /* Keep nav visible as requested */
+  .nav-links, .contact-btn { display: flex; align-items: center; }
   
   h2, .section-top h2 { font-size: 28px !important; }
   .hero h1 { font-size: 36px; }
   
-  .container-faq, .ppane.active { grid-template-columns: 1fr; gap: 32px; }
+  .faq-bc-wrap { grid-template-columns: 1fr; gap: 32px; }
 
   /* Manufacturing: hide tab row, show badge + stacked layout */
   .mfg-stepper { display: none; }
@@ -1564,9 +1534,7 @@ h2 {
   .faq-bc-right { width: 240px; }
 }
 
-/* -----------------
-   RESPONSIVE OVERHAULS (Screens up to 576px / Mobile)
-   ----------------- */
+/* Responsive layout add-ons*/
 @media (max-width: 576px) {
   /* Mobile default (<=576px): Image is placed in the middle */
   .hero-left { order: 4; margin-top: 0; margin-bottom: 32px; }
@@ -1716,7 +1684,7 @@ h2 {
 }
 
 .btn-download {
-  background: #e1e4ed; /* Light gray as in screenshot initial state? or primary? */
+  background: #e1e4ed;
   color: #7d8591;
   border: none;
   padding: 10px 20px;
@@ -1726,7 +1694,6 @@ h2 {
   cursor: pointer;
 }
 
-/* Primary style for button once valid? Screenshot shows a light one. */
 .btn-download.ready {
   background: #2F3C8F;
   color: #fff;
