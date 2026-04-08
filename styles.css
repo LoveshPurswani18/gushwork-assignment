@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 :root {
   --primary: #2f3c8f;
   --text-main: #111827;
@@ -12,6 +16,41 @@
   --bg-light: #f8fafc;
   --border: #e5e7eb;
   --font-family: "Inter", sans-serif;
+  
+  /* Responsive Fold Paddings */
+  --fold-px: 100px;
+  --fold-py: 100px;
+}
+
+@media (max-width: 1440px) {
+  :root {
+    --fold-px: 100px;
+    --fold-py: 100px;
+  }
+}
+@media (max-width: 1200px) {
+  :root {
+    --fold-px: 80px;
+    --fold-py: 80px;
+  }
+}
+@media (max-width: 1080px) {
+  :root {
+    --fold-px: 60px;
+    --fold-py: 80px;
+  }
+}
+@media (max-width: 800px) {
+  :root {
+    --fold-px: 48px;
+    --fold-py: 80px;
+  }
+}
+@media (max-width: 360px) {
+  :root {
+    --fold-px: 16px;
+    --fold-py: 48px;
+  }
 }
 
 body {
@@ -20,17 +59,20 @@ body {
   background-color: #fff;
   line-height: 1.5;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
+/* Ensure inner content never exceeds 1240px, but incorporates required fold padding below that */
 .container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: calc(1240px + calc(var(--fold-px) * 2));
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--fold-px);
 }
 .container-sm {
-  max-width: 900px;
+  max-width: calc(1000px + calc(var(--fold-px) * 2));
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--fold-px);
 }
 
 img {
@@ -57,7 +99,8 @@ button {
   color: var(--text-muted);
 }
 .py-80 {
-  padding: 80px 0;
+  padding-top: var(--fold-py);
+  padding-bottom: var(--fold-py);
 }
 .mb-40 {
   margin-bottom: 40px;
@@ -169,21 +212,29 @@ h2 {
    ORIGINAL HEADER 
    ----------------- */
 .header {
-  position: relative;
-  /* the user said keeping original is fine, original had position:sticky, wait I'll JS it to just be sticky or use sticky-header */
+  position: sticky;
+  top: 0;
   background: #ffffff;
   border-bottom: 1px solid #eee;
-  z-index: 100;
+  z-index: 200;
+  transition: box-shadow 0.3s;
+}
+.header.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 72px;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 .logo img {
   height: 40px;
   width: auto;
+  max-width: 160px;
+  flex-shrink: 0;
 }
 .nav-links {
   display: flex;
@@ -221,15 +272,16 @@ h2 {
   font-size: 24px;
 }
 
-/* Sticky Header (user's original bar) */
+/* Sticky mini-header — appears above (over) the nav when scrolled past hero */
 .sticky-header {
   position: fixed;
-  top: -100px;
+  top: -80px;
   left: 0;
+  right: 0;
   width: 100%;
   background: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: top 0.3s;
+  transition: top 0.3s ease;
   z-index: 999;
 }
 .sticky-header.show {
@@ -258,6 +310,9 @@ h2 {
   gap: 60px;
   align-items: center;
 }
+.hero-left {
+  position: relative;
+}
 .carousel {
   position: relative;
   margin-bottom: 16px;
@@ -267,35 +322,45 @@ h2 {
 .carousel img {
   width: 100%;
   display: block;
-  border-radius: 16px;
-  height: 400px;
+  border-radius: 20px;
+  height: clamp(300px, 40vw, 480px); /* Responsive but restricted height */
   object-fit: cover;
 }
 .zoom-lens {
   position: absolute;
-  border: 1px solid #d4d4d4;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 140px;
+  height: 140px;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 1000px rgba(0,0,0,0.1);
   visibility: hidden;
   pointer-events: none;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px; /* Slightly rounded square */
+}
+.zoom-lens svg {
+  opacity: 0.9;
+  color: white;
 }
 .zoom-result {
   position: absolute;
   top: 0;
-  left: 100%;
-  margin-left: 20px;
-  width: 400px;
-  height: 400px;
-  border-radius: 16px;
+  left: calc(100% + 20px);
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  border-radius: 24px;
   background-color: #fff;
+  border: 4px solid #fff; /* Thick white border from screenshot */
   visibility: hidden;
-  z-index: 20;
+  z-index: 50;
   background-repeat: no-repeat;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
   pointer-events: none;
+  overflow: hidden;
 }
 .arrow {
   position: absolute;
@@ -320,10 +385,13 @@ h2 {
 .thumbs {
   display: flex;
   gap: 12px;
+  width: 100%;
 }
 .thumb {
-  width: 70px;
-  height: 70px;
+  flex: 1;
+  min-width: 0; 
+  height: auto;
+  aspect-ratio: 1;
   border-radius: 10px;
   object-fit: cover;
   opacity: 0.6;
@@ -652,26 +720,33 @@ h2 {
 .faq-bottom-card {
   background: #fdfdfd;
   border: 1px solid var(--border);
-  padding: 32px;
-  border-radius: 12px;
+  padding: 36px 40px;
+  border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 48px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  margin-top: 40px;
+}
+.faq-bc-left {
+  flex: 1;
+  min-width: 0;
 }
 .faq-bc-left h3 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   margin-bottom: 8px;
   color: var(--text-main);
+  line-height: 1.3;
 }
 .faq-bc-left p {
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 .faq-bc-right {
-  width: 320px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -681,29 +756,63 @@ h2 {
   width: 100%;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   font-family: inherit;
   font-size: 14px;
+  background: #fff;
+  color: var(--text-main);
+  outline: none;
+}
+.faq-input:focus {
+  border-color: var(--primary);
 }
 .faq-submit {
   padding: 14px 24px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
 }
 
 /* -----------------
    APPLICATIONS 
    ----------------- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+  gap: 24px;
+}
+.app-header .section-top {
+  flex: 1;
+  max-width: 600px;
+  margin: 0;
+}
+.app-header .section-top h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #111827;
+}
+.app-header .section-top p {
+  color: #6B7280;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.6;
+}
 .slider-arrows {
   display: flex;
   gap: 16px;
-  margin-bottom: 8px;
+  flex-shrink: 0;
+  padding-top: 4px;
 }
 .slider-arrow {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: 1px solid var(--border);
+  border: 1px solid #D1D5DB;
   background: #fff;
   font-size: 18px;
   display: flex;
@@ -711,35 +820,78 @@ h2 {
   justify-content: center;
   cursor: pointer;
   transition: 0.2s;
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .slider-arrow:hover {
-  background: var(--bg-light);
-  border-color: #ccc;
+  background: #f3f4f6;
+  border-color: #9CA3AF;
+}
+.app-grid-wrap {
+  overflow: hidden;
+  padding-left: var(--fold-px);
+  padding-right: var(--fold-px);
 }
 .app-grid {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   overflow-x: auto;
-  padding-bottom: 16px;
+  padding-bottom: 4px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 }
 .app-grid::-webkit-scrollbar {
   display: none;
 }
+/* Card: ~3 cards visible on desktop, 2 on tablet, 1.5 on mobile */
 .app-card {
   position: relative;
-  min-width: 380px;
+  /* Show ~3 cards on desktop */
+  min-width: calc((100vw - 2 * var(--fold-px) - 2 * 16px) / 3);
+  width: calc((100vw - 2 * var(--fold-px) - 2 * 16px) / 3);
+  max-width: 380px;
+  height: 420px;
   scroll-snap-align: start;
   flex-shrink: 0;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  background: transparent;
+  background: #111;
+  cursor: pointer;
 }
 .app-card img {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.app-card:hover img {
+  transform: scale(1.04);
+}
+.app-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 20px 22px;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 50%, transparent 100%);
+  z-index: 2;
+}
+.app-card-overlay h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.app-card-overlay p {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* -----------------
@@ -748,7 +900,7 @@ h2 {
 .mfg-card {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
 }
@@ -761,6 +913,7 @@ h2 {
   margin-bottom: 32px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  gap: 4px;
 }
 .mfg-stepper::-webkit-scrollbar { display: none; }
 .mfg-step {
@@ -774,6 +927,7 @@ h2 {
   white-space: nowrap;
   transition: 0.2s;
   cursor: pointer;
+  flex-shrink: 0;
 }
 .mfg-step.active {
   background: var(--primary);
@@ -785,8 +939,51 @@ h2 {
   flex: 1;
   height: 1px;
   background: var(--border);
-  min-width: 15px;
+  min-width: 8px;
+  flex-shrink: 1;
 }
+
+/* Step badge — visible only on mobile */
+.mfg-step-badge {
+  display: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+/* Mobile nav buttons inside card */
+.mfg-mobile-nav {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.mfg-mobile-nav button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.mfg-mobile-nav button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 .mfg-pane {
   display: none;
   grid-template-columns: 1fr 1fr;
@@ -835,7 +1032,7 @@ h2 {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  height: 380px;
+  height: 280px;
 }
 .mfg-img-wrapper img {
   width: 100%;
@@ -1140,19 +1337,21 @@ h2 {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 40px 64px;
+  padding: 32px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 64px;
+  gap: 32px;
+  margin-bottom: 56px;
 }
 .f-logo {
-  height: 48px;
+  height: 44px;
+  flex-shrink: 0;
 }
 .f-top-right h4 {
-  font-size: 22px;
+  font-size: clamp(18px, 3vw, 26px);
   color: #111827;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.4;
   margin: 0;
 }
@@ -1255,68 +1454,164 @@ h2 {
 }
 
 /* -----------------
-   RESPONSIVE (up to Tablet / Mobile)
+   RESPONSIVE OVERHAULS (Screens up to 1200px)
    ----------------- */
-@media (max-width: 1024px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-  .zoom-result {
-    display: none !important;
-  }
-  .engineered-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .container-faq {
-    grid-template-columns: 1fr;
-  }
-  .ppane.active {
-    grid-template-columns: 1fr;
-  }
-  .cta-inner {
-    grid-template-columns: 1fr;
-    padding: 40px 32px;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+@media (max-width: 1200px) {
+  .hero-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .cta-inner { grid-template-columns: 1fr 340px; gap: 40px; padding: 48px; }
+  .portfolio-cta { padding: 32px 40px; }
+  .footer-grid { gap: 24px; }
 }
 
-@media (max-width: 768px) {
-  .nav-links,
-  .contact-btn {
-    display: none;
+/* -----------------
+   RESPONSIVE OVERHAULS (Screens up to 1080px)
+   ----------------- */
+@media (max-width: 1080px) {
+  /* Nav scales down instead of hiding */
+  .nav-links { gap: 16px; margin-right: 12px; }
+  .nav-links a { font-size: 13px; }
+  .contact-btn { padding: 10px 16px; font-size: 13px; }
+
+  .hero-grid { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; 
+    gap: 32px; 
   }
-  .mobile-menu-btn {
-    display: block;
-    color: var(--text-main);
+  .hero-right { display: contents; }
+  .badges { flex-wrap: wrap; }
+  .hero-right > .badges { order: 1; }
+  .hero-right > h1 { order: 2; margin-bottom: 24px; }
+  .hero-right > .features { order: 3; margin-bottom: 32px; }
+  
+  /* Tablet default (1080px to 577px): Image is at the bottom */
+  .hero-right > .price-card { order: 4; width: 100%; margin-top: 0; }
+  .hero-right > .hero-buttons { order: 5; width: 100%; }
+  .hero-left { order: 6; width: 100%; margin-bottom: 32px; margin-top: 32px; }
+  
+  .hero-content { margin: 0 auto; align-items: flex-start; display: flex; flex-direction: column; }
+  .hero h1 { font-size: 40px; }
+  .zoom-result { 
+    left: 0; 
+    top: 0; 
+    width: 250px; 
+    height: 250px; 
+    min-width: 0; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
-  .stats-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-  .engineered-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero h1 {
-    font-size: 32px;
-  }
-  .app-grid {
-    grid-template-columns: 1fr;
-  }
-  .form-row.flex {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .f-bottom {
+  
+  .engineered-grid, .portfolio-grid, .app-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .cta-inner { grid-template-columns: 1fr; padding: 40px; text-align: center; }
+  .cta-text p, .cta-text div { margin: 0 auto; margin-top: 16px; }
+  
+  .portfolio-cta { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 24px; }
+  
+  .footer-top-card { flex-direction: column; gap: 24px; text-align: center; align-items: center; }
+  .f-top-right h4 { text-align: center; font-size: 20px; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+}
+
+/* -----------------
+   RESPONSIVE OVERHAULS (Screens up to 800px)
+   ----------------- */
+@media (max-width: 800px) {
+  .nav-links, .contact-btn { display: none; }
+.mobile-menu-btn { display: none !important; }
+  
+  h2, .section-top h2 { font-size: 28px !important; }
+  .hero h1 { font-size: 36px; }
+  
+  .container-faq, .ppane.active { grid-template-columns: 1fr; gap: 32px; }
+
+  /* Manufacturing: hide tab row, show badge + stacked layout */
+  .mfg-stepper { display: none; }
+  .mfg-step-badge { display: block; }
+  .mfg-mobile-nav { display: flex; }
+  .mfg-pane.active {
+    display: flex;
     flex-direction: column;
     gap: 24px;
-    text-align: center;
   }
-  .footer {
-    padding-top: 140px;
+  .mfg-card { padding: 24px; }
+  .mfg-img-wrapper { height: auto; aspect-ratio: 4/3; }
+  .mfg-img-arrow { display: none; }
+  .mfg-pane-left h3 { font-size: 22px; }
+  
+  .app-grid { grid-template-columns: 1fr; }
+
+  /* Applications: arrows move below text on mobile */
+  .app-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .slider-arrows { align-self: flex-start; }
+
+  /* App cards: 2-up visible on tablet */
+  .app-card {
+    min-width: clamp(200px, 42vw, 280px);
+    width: clamp(200px, 42vw, 280px);
+    height: clamp(240px, 45vw, 340px);
   }
+  .app-img, .port-img, .s-img { height: 220px; }
+  
+  .resource-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .resource-list { padding: 0 24px; }
+  
+  .f-bottom { flex-direction: column; gap: 24px; text-align: center; }
+  .f-bottom-links { flex-direction: column; gap: 12px; }
+  .social-icons { justify-content: center; }
+
+  /* FAQ catalogue card — medium screen: keep side-by-side but narrower */
+  .faq-bottom-card { gap: 32px; padding: 28px 32px; align-items: flex-start; }
+  .faq-bc-right { width: 240px; }
 }
+
+/* -----------------
+   RESPONSIVE OVERHAULS (Screens up to 576px / Mobile)
+   ----------------- */
+@media (max-width: 576px) {
+  /* Mobile default (<=576px): Image is placed in the middle */
+  .hero-left { order: 4; margin-top: 0; margin-bottom: 32px; }
+  .hero-right > .price-card { order: 5; }
+  .hero-right > .hero-buttons { order: 6; display: flex; flex-direction: column; }
+  
+  .hero h1 { font-size: clamp(24px, 10vw, 36px); line-height: 1.25; }
+  .hero p { font-size: clamp(14px, 4vw, 16px); }
+  .features li { font-size: clamp(14px, 4vw, 16px); gap: 8px; }
+  .price { font-size: clamp(22px, 8vw, 28px); }
+  .price-tags { flex-direction: column; gap: 8px; }
+  .tag { text-align: center; justify-content: center; }
+  
+  .portfolio-grid, .engineered-grid { grid-template-columns: 1fr; }
+  .port-card, .app-card { padding: 24px; }
+  .port-img, .app-img { height: 180px; }
+  
+  .cta-form-box { padding: 24px; }
+  .cta-inner { padding: 32px 24px; }
+  .cta-text h2 { font-size: 28px !important; }
+  
+  /* Footer mobile: full single-column stack */
+  .footer-top-card { flex-direction: column; gap: 20px; text-align: center; padding: 24px 20px; }
+  .f-logo { height: 40px; }
+  .f-top-right h4 { font-size: 18px; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: 0; padding-bottom: 32px; }
+  .f-col { padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 0; }
+  .f-col:last-child { border-bottom: none; }
+  .f-col h5 { margin-bottom: 16px; }
+  .f-col a { margin-bottom: 12px; }
+  .contact-row { align-items: flex-start; }
+  .social-icons { margin-top: 20px; }
+  .f-bottom { flex-direction: column; gap: 16px; text-align: center; padding: 20px 0; }
+  .f-bottom-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+  
+  /* Trusted Logos & Spec Table Micro Adjustments */
+  .logos { flex-wrap: wrap; justify-content: center; gap: 24px; }
+  .logos img { height: 24px; }
+  .spec-table { font-size: 11px; }
+  .row { padding: 12px 16px; gap: 8px; }
+
+  /* FAQ catalogue card — mobile: single column full-width stacked */
+  .faq-bottom-card { flex-direction: column; gap: 24px; align-items: stretch; padding: 28px; }
+  .faq-bc-right { width: 100%; }
+  .faq-bc-left h3 { font-size: clamp(20px, 6vw, 28px); }
+}
+

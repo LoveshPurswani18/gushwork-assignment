@@ -5,8 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const stickyHeader = document.querySelector(".sticky-header");
   const heroSection = document.querySelector(".hero");
 
+  const header = document.querySelector(".header");
   window.addEventListener("scroll", () => {
-    // Show sticky header when scrolled past the first fold (hero section)
+    // Toggle shadow on main sticky header
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+    // Show sticky mini-header when scrolled past the first fold (hero section)
     if (window.scrollY > (heroSection.offsetHeight || 600) * 0.8) {
       stickyHeader.classList.add("show");
     } else {
@@ -50,17 +57,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const lens = document.getElementById('lens');
   const result = document.getElementById('result');
 
-  // We set initial background for result
-  result.style.backgroundImage = `url(${mainImage.src})`;
-  // Zoom ratio. You can adjust this. 2x or 3x
-  const cx = 2.5; 
-  const cy = 2.5;
+  let cx, cy;
+
+  function setZoom() {
+    // Zoom ratio. Calculated based on result vs lens
+    cx = result.offsetWidth / lens.offsetWidth;
+    cy = result.offsetHeight / lens.offsetHeight;
+    
+    result.style.backgroundImage = `url(${mainImage.src})`;
+    result.style.backgroundSize = `${mainImage.width * cx}px ${mainImage.height * cy}px`;
+  }
 
   container.addEventListener("mouseenter", () => {
     lens.style.visibility = "visible";
     result.style.visibility = "visible";
-    result.style.backgroundImage = `url(${mainImage.src})`;
-    result.style.backgroundSize = `${mainImage.width * cx}px ${mainImage.height * cy}px`;
+    setZoom();
   });
 
   container.addEventListener("mouseleave", () => {    
@@ -69,14 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   container.addEventListener("mousemove", moveLens);
-  // for mobile
   container.addEventListener("touchmove", moveLens);
 
   function moveLens(e) {
     e.preventDefault();
     const pos = getCursorPos(e);
     let x = pos.x - (lens.offsetWidth / 2);
-    let y = pos.y - (offsetHeight = lens.offsetHeight / 2);
+    let y = pos.y - (lens.offsetHeight / 2);
 
     // Prevent lens from going outside the image
     if (x > mainImage.width - lens.offsetWidth) { x = mainImage.width - lens.offsetWidth; }
@@ -92,15 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function getCursorPos(e) {
-    let a, x = 0, y = 0;
-    e = e || window.event;
-    a = mainImage.getBoundingClientRect();
-    // Calculate cursor's X and Y, relative to image
-    x = e.pageX - a.left;
-    y = e.pageY - a.top;
-    // Consider any page scrolling
-    x = x - window.pageXOffset;
-    y = y - window.pageYOffset;
+    let x = 0, y = 0;
+    const a = mainImage.getBoundingClientRect();
+    // Use clientX/Y to avoid page offset issues if needed, or stick to page - rect
+    const event = e.touches ? e.touches[0] : e;
+    x = event.clientX - a.left;
+    y = event.clientY - a.top;
     return {x : x, y : y};
   }
 
@@ -147,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mfgPanesArray = document.querySelectorAll('.mfg-pane');
   
   let currentMfgIndex = 0;
+  const stepLabels = ['Raw Material', 'Extrusion', 'Cooling', 'Sizing', 'Quality Control', 'Marking', 'Cutting', 'Packaging'];
 
   window.changeMfgStep = function(dir) {
       if (!mfgSteps.length) return;
@@ -156,12 +164,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateMfgUI() {
       mfgSteps.forEach((step, i) => {
-          if (i === currentMfgIndex) step.classList.add('active');
-          else step.classList.remove('active');
+          if (i === currentMfgIndex) {
+            step.classList.add('active');
+            step.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+          } else step.classList.remove('active');
       });
       mfgPanesArray.forEach((pane, i) => {
-          if (i === currentMfgIndex) pane.classList.add('active');
-          else pane.classList.remove('active');
+          if (i === currentMfgIndex) {
+            pane.classList.add('active');
+            // Update the mobile step badge inside this pane
+            const badge = pane.querySelector('.mfg-step-badge');
+            if (badge) badge.textContent = `Step ${i + 1}/${mfgPanesArray.length}: ${stepLabels[i] || ''}`;
+          } else pane.classList.remove('active');
       });
   }
 
