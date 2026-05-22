@@ -3,10 +3,10 @@
 A high-fidelity, responsive web page built with vanilla HTML, CSS, and JavaScript. This project showcases a premium frontend implementation following strict design specifications.
 
 ## Live Demo
-[View Live Site](https://gushwork-assignment-pi.vercel.app/#)
+[View Live Site](https://hdpe-pipes-pi.vercel.app/)
 
 ## Repository
-[GitHub Repository](https://github.com/LoveshPurswani18/gushwork-assignment)
+https://github.com/LoveshPurswani18/hdpe-pipes-site
 
 ## Key Features
 - **Pixel-Perfect Implementation**: Meticulously followed Figma design specs for desktop, tablet, and mobile.
